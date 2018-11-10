@@ -2,7 +2,9 @@
 
 * ## Uri 1610 Dudu Faz Serviço
 
-	A ideia por trás da questão indicada é de encontrar ciclos em um grafo, aonde a dependencia cíclica dos documentos geraria um serviço infinito para Dudu. Assim sendo uma das maneiras de se encontrar um loop em um grafo é saber se, dada uma travessia iniciada, na mesma travessia, é possível encontrar um dos vértices que foram visitados anteriormente, nessa mesma visita.
+&nbsp;&nbsp;&nbsp; A ideia por trás da questão indicada é de encontrar ciclos em um grafo, já que uma dependencia cíclica dos documentos geraria um serviço infinito para Dudu resultanto em uma impossibilidade de terminar seu serviço.
+	
+&nbsp;&nbsp;&nbsp; Usando um algoritmo de travessia(bfs/dfs) é possível identificar um ciclo, se após o início de uma travessia,for possível visitar uma das arestas já visitadas durante essa travessia(ou seja revisitar uma aresta visitada em uma travessia anterior não configura um ciclo). Vale ressaltar que como o grafo pode ter mais de um componente(não ser completamente conectado), é necessário considerar todos os componentes já que algum deles pode ter uma travessia cíclica.
 
 ~~~~C++
 #include <bits/stdc++.h>
@@ -61,9 +63,9 @@ int main (){
 
 * ## Uva 336 A Node Too Far
 	
-<p>Essa questão demanda que dado um ttl máximo o programa determine a quantidade de nós inatingíveis, ou seja, quantas arestas tem distância maior do que o dado ttl de uma aresta X tanto o bfs que pode ser facilmente adaptado para achar os menores caminhos e então contar quantos são maiores do que o ttl quanto um dfs que faça todo esse trabalho podem ser usados.</p>
+<p>&nbsp;&nbsp;&nbsp; Essa questão demanda que dado um ttl máximo o programa determine a quantidade de nós inatingíveis, ou seja, quantas arestas tem distância maior do que o dado ttl de uma aresta X tanto o bfs que pode ser facilmente adaptado para achar os menores caminhos e então contar quantos são maiores do que o ttl quanto um dfs que faça todo esse trabalho podem ser usados.</p>
 	
-<p>Porém a questão implica algumas dificuldades, como por exemplo, sabem se que serão no máximo 30 nós, porem esses nós podem ter valores muito grandes, o que não permite que um nó 'Ni' seja salvo em um vetor, na fomra v[Ni], um segundo problema é desconhecer, a princípio, a quantidade de arestas. Ambos os problemas podem ser solucionados ao mesmo tempo, usando uma combinação de um map e um set, na qual o set permitira saber quantas arestas realmente existem, e com o auxílio de um "mapa de transferência" é possível colocar todos os números em valores que possam ser salvos no formato v[trans[Ni]] já que transf[Ni] sera um número entre 0 e a quantidade de nós.</p>
+<p>&nbsp;&nbsp;&nbsp; Porém a questão implica algumas dificuldades, como por exemplo, sabem se que serão no máximo 30 nós, porem esses nós podem ter valores muito grandes, o que não permite que um nó 'Ni' seja salvo em um vetor, na fomra v[Ni], um segundo problema é desconhecer, a princípio, a quantidade de arestas. Ambos os problemas podem ser solucionados ao mesmo tempo, usando uma combinação de um map e um set, na qual o set permitira saber quantas arestas realmente existem, e com o auxílio de um "mapa de transferência" é possível colocar todos os números em valores que possam ser salvos no formato v[trans[Ni]] já que transf[Ni] sera um número entre 0 e a quantidade de nós.</p>
 
 ~~~~C++
 #include<bits/stdc++.h>
